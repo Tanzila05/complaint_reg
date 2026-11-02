@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Registration System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Complaint Registration System</h1>
+            <nav>
+                <a href="index.html" class="active">Submit Complaint</a>
+                <a href="track.html">Track Complaints</a>
+                <a href="login.html" id="loginLink">Login</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Submit a New Complaint</h2>
+                <form id="complaintForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Service">Service</option>
+                            <option value="Product">Product</option>
+                            <option value="Billing">Billing</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Submit Complaint</button>
+                </form>
+
+                <div id="successMessage" class="success-message hidden">
+                    <p>Complaint submitted successfully!</p>
+                    <p>Your complaint ID: <strong id="complaintId"></strong></p>
+                    <button onclick="resetForm()" class="btn-secondary">Submit Another</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

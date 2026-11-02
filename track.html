@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Complaints - Complaint Registration System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Complaint Registration System</h1>
+            <nav>
+                <a href="index.html">Submit Complaint</a>
+                <a href="track.html" class="active">Track Complaints</a>
+                <a href="login.html" id="loginLink">Login</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="stats-section">
+                <h2>Complaint Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total</h3>
+                        <p id="totalComplaints">0</p>
+                    </div>
+                    <div class="stat-card pending">
+                        <h3>Pending</h3>
+                        <p id="pendingComplaints">0</p>
+                    </div>
+                    <div class="stat-card in-progress">
+                        <h3>In Progress</h3>
+                        <p id="inProgressComplaints">0</p>
+                    </div>
+                    <div class="stat-card resolved">
+                        <h3>Resolved</h3>
+                        <p id="resolvedComplaints">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="search-section">
+                <h2>Search Complaints</h2>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search by ID, name, or subject...">
+                    <button onclick="searchComplaints()" class="btn-primary">Search</button>
+                </div>
+            </section>
+
+            <section class="complaints-section">
+                <div class="section-header">
+                    <h2>All Complaints</h2>
+                    <button onclick="exportToExcel()" class="btn-secondary">Export to Excel</button>
+                </div>
+                <div id="complaintsList" class="complaints-list">
+                    <p class="no-data">No complaints found</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="complaintModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Complaint Details</h2>
+            <div id="modalContent"></div>
+            <div class="modal-actions">
+                <label for="statusUpdate">Update Status:</label>
+                <select id="statusUpdate">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+                <button onclick="updateComplaintStatus()" class="btn-primary">Update</button>
+                <button onclick="closeModal()" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="track.js"></script>
+</body>
+</html>
